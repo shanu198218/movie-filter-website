@@ -192,12 +192,14 @@ hr {
 
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #333;
-  border: none;
+  top: 14px;
+  right: 20px;
+  background: #660404;
+  border: whitesmoke;
+  border-width: 2ch;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bolder;
   padding: 5px 10px;
   border-radius: 50%;
   cursor: pointer;
@@ -678,5 +680,32 @@ footer {
   left: 0;
 }
 
-
+@media (max-width: 500px) {
+  .flip-card {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  perspective: 1000px;
 }
+}
+
+@media (max-width: 425px) {
+  .flip-card {
+  position: relative;
+  width: 320px;
+  height: 600px;
+  perspective: 1000px;
+}
+}
+@media (max-width: 425px) {
+  .flip-card {
+  position: relative;
+  width: 320px;
+  height: 600px;
+  perspective: 1000px;
+  }
+}
+}
+
+
+
