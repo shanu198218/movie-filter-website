@@ -75,7 +75,7 @@ w3IncludeHTML();
   </section>
 
   <!-- Movie Grid using Vue Flip Cards -->
-  <div class="container" id="app">
+  <div class="container" id="app" >
     <header>
       <h1>Collect your favourites</h1>
 
@@ -89,7 +89,10 @@ w3IncludeHTML();
       <hr />
     </header>
 
-    <div class="movie-grid" id="library">
+    <div class="movie-grid" id="library" v-if="!loading">
+      <div v-if="loading" class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
       <div
         class="flip-card"
         v-for="(show, index) in shows"
@@ -213,6 +216,7 @@ w3IncludeHTML();
       data: {
         shows: [],
         query: '',
+        loading : true,
         placeholder: 'https://via.placeholder.com/300x400?text=No+Image'
       },
       mounted() {
@@ -224,6 +228,7 @@ w3IncludeHTML();
             .then(res => res.json())
             .then(data => {
               this.shows = data.map(d => d.show);
+              this.loading = false;
               this.$nextTick(() => {
                 this.shows.forEach((_, i) => {
                   gsap.from(this.$refs['card-' + i], {
@@ -235,7 +240,9 @@ w3IncludeHTML();
                     ease: 'power3.out'
                   });
                 });
-              });
+              })
+            }).catch(() => {
+              this.loading = false
             });
         },
         searchShows() {
@@ -288,7 +295,7 @@ w3IncludeHTML();
     });
   </script>
 
-  <!-- Extra Scripts -->
+ 
   <script src="./js/hamburger.js"></script>
   <script src="./js/formValidation.js"></script>
 </body>
