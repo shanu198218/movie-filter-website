@@ -693,5 +693,31 @@ footer {
   top: 0;
   left: 0;
   }
-  
+  @media (max-width: 500px) {
+  .flip-card {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  perspective: 1000px;
 }
+}
+
+@media (max-width: 425px) {
+  .flip-card {
+  position: relative;
+  width: 320px;
+  height: 600px;
+  perspective: 1000px;
+}
+}
+@media (max-width: 425px) {
+  .flip-card {
+  position: relative;
+  width: 320px;
+  height: 600px;
+  perspective: 1000px;
+  }
+}
+}
+
+
