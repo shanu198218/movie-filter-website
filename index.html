@@ -66,39 +66,35 @@
     <link rel="icon" href="/assets/Icons/favicon.ico" type="image/x-icon" />
     <!-- Main Style -->
     <link id="main-style" rel="stylesheet" href="./css/style.css" />
-    <!-- Scripts -->
-    <script type="module">
-      import {
-        changeLanguage,
-        initializeLanguageSwitcher,
-      } from "./js/languageSwitcher.js";
-      import { toggleMenu, initNavAutoClose } from "./js/navToggle.js";
 
-      window.addEventListener("DOMContentLoaded", () => {
+  
+    <script type="module">
+  import { changeLanguage, initializeLanguageSwitcher } from './js/languageSwitcher.js';
+  import { toggleMenu, initNavAutoClose } from './js/navToggle.js';
+
+
+  window.addEventListener('DOMContentLoaded', () => {
         initializeLanguageSwitcher();
         initNavAutoClose();
-        document
-          .getElementById("languageSwitcher")
-          .addEventListener("change", (e) => {
+    document.getElementById('languageSwitcher').addEventListener('change', (e) => {
             changeLanguage(e.target.value);
           });
-        document
-          .getElementById("hamburger")
-          .addEventListener("click", toggleMenu);
+    document.getElementById('hamburger').addEventListener('click', toggleMenu);
       });
     </script>
     <script src="./js/vue-app.js"></script>
     <script>
       w3IncludeHTML();
     </script>
+<!-- Other scripts -->
     <script type="module" src="./js/nav-toggle.js"></script>
     <script src="./js/form-validation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   </head>
-
   <body>
-    <div style="text-align: right; padding: 10px 30px">
+
+  <div style="text-align: right; padding: 10px 30px;">
       <label for="languageSwitcher">Language:</label>
       <select id="languageSwitcher" onchange="changeLanguage(this.value)">
         <option value="en">English</option>
@@ -114,33 +110,12 @@
       <nav id="main-nav" aria-label="Main Navigation">
         <ul class="nav-links" id="navLinks">
           <li><a href="#home" role="link" aria-label="Home">Home</a></li>
-          <li>
-            <a href="#library" role="link" aria-label="Our Screens"
-              >OUR SCREENS</a
-            >
-          </li>
-          <li>
-            <a href="#schedule" role="link" aria-label="Schedule">Schedule</a>
-          </li>
-          <li>
-            <a href="#library" role="link" aria-label="Movie Library"
-              >MOVIE LIBRARY</a
-            >
-          </li>
-          <li>
-            <a href="#contact" role="link" aria-label="Contact Us"
-              >Location & Contact</a
-            >
-          </li>
+        <li><a href="#library" role="link" aria-label="Our Screens">OUR SCREENS</a></li>
+        <li><a href="#schedule" role="link" aria-label="Schedule">Schedule</a></li>
+        <li><a href="#library" role="link" aria-label="Movie Library">MOVIE LIBRARY</a></li>
+        <li><a href="#contact" role="link" aria-label="Contact Us">Location & Contact</a></li>
         </ul>
-        <div
-          class="hamburger"
-          id="hamburger"
-          aria-label="Navigation Menu"
-          onclick="toggleMenu()"
-        >
-          ☰
-        </div>
+      <div class="hamburger" id="hamburger" aria-label="Navigation Menu" onclick="toggleMenu()">☰</div>
       </nav>
     </header>
 
@@ -148,26 +123,20 @@
     <section class="main-visual-section">
       <video autoplay loop muted playsinline class="main-visual">
         <source src="./assets/Videos/film-hall.mp4" type="video/mp4" />
-        <img
-          src="/assets/Images/Header Image.jpg"
-          alt="Hero Image"
-          class="main-visual-fallback"
-        />
+    <img src="/assets/Images/Header Image.jpg" alt="Hero Image" class="main-visual-fallback" />
       </video>
     </section>
+
+
 
     <!-- Intro -->
     <section class="intro" id="home" role="main">
       <h1>Movie Library</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-        voluptua.
-      </p>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
     </section>
 
     <!-- Movie Grid using Vue Flip Cards -->
-    <div class="container" id="app">
+  <div class="container" id="app" >
       <header>
         <h1>Collect your favourites</h1>
 
@@ -204,10 +173,7 @@
             </div>
 
             <div class="flip-card-back">
-              <p>
-                {{ stripTags(show.summary).slice(0, 180) || 'No description
-                available.' }}
-              </p>
+            <p>{{ stripTags(show.summary).slice(0, 180) || 'No description available.' }}</p>
             </div>
           </div>
         </div>
@@ -225,21 +191,11 @@
             <div class="row">
               <div class="form-group">
                 <label for="fname">First Name *</label>
-                <input
-                  type="text"
-                  id="fname"
-                  placeholder="First Name *"
-                  required
-                />
+              <input type="text" id="fname" placeholder="First Name *" required />
               </div>
               <div class="form-group">
                 <label for="lname">Last Name *</label>
-                <input
-                  type="text"
-                  id="lname"
-                  placeholder="Last Name *"
-                  required
-                />
+              <input type="text" id="lname" placeholder="Last Name *" required />
               </div>
             </div>
 
