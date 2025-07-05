@@ -1,302 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Website</title>
-   <link id="main-style" rel="stylesheet" href="./css/style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Library | Watch, Explore & Connect</title>
+    <link rel="icon" type="image/x-icon" href="/assets/Icons/favicon.ico" />
 
-  
-  <script type="module">
-  import { changeLanguage, initializeLanguageSwitcher } from './js/languageSwitcher.js';
-  import { toggleMenu, initNavAutoClose } from './js/navToggle.js';
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Explore a vast collection of movies, search your favorites, and stay updated with the latest schedules. Join us to enjoy cinematic experiences like never before."
+    />
+    <meta
+      name="keywords"
+      content="movies, movie library, cinema, watch online, movie schedule, film, entertainment, movie search"
+    />
+    <meta name="author" content="Amadeus IT Group" />
+    <meta name="robots" content="index, follow" />
 
+    <!-- Open Graph for Social Sharing -->
+    <meta
+      property="og:title"
+      content="Movie Library | Watch, Explore & Connect"
+    />
+    <meta
+      property="og:description"
+      content="Discover your favorite movies, view schedules, and enjoy a modern cinematic experience."
+    />
+    <meta
+      property="og:image"
+      content="https://movie-website-assignment.vercel.app/assets/Images/Header%20Image.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://movie-website-assignment.vercel.app/"
+    />
+    <meta property="og:type" content="website" />
 
-  window.addEventListener('DOMContentLoaded', () => {
-    initializeLanguageSwitcher();
-    initNavAutoClose();
-    document.getElementById('languageSwitcher').addEventListener('change', (e) => {
-      changeLanguage(e.target.value);
-    });
-    document.getElementById('hamburger').addEventListener('click', toggleMenu);
-  });
-</script>
-<script src="./js/vue-app.js"></script>
-<script>
-w3IncludeHTML();
-</script>
-<!-- Other scripts -->
- <script type="module" src="./js/nav-toggle.js"></script>
-<script src="./js/form-validation.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-</head>
-<body>
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Movie Library | Watch, Explore & Connect"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover your favorite movies, view schedules, and enjoy a modern cinematic experience."
+    />
+    <meta
+      name="twitter:image"
+      content="https://movie-website-assignment.vercel.app/assets/Images/Header%20Image.jpg"
+    />
 
-  <div style="text-align: right; padding: 10px 30px;">
-    <label for="languageSwitcher">Language:</label>
-    <select id="languageSwitcher" onchange="changeLanguage(this.value)">
-      <option value="en">English</option>
-      <option value="ar">العربية</option>
-    </select>
-  </div>
-  <!-- Header -->
-   <div w3-include-html="components/Header/header.html"></div>
-  <header>
-    <div class="logo">
-      <img src="/assets/Logos/Logo White.svg" alt="Logo" />
+    <!-- Google AdSense Account Verification -->
+    <meta name="google-adsense-account" content="ca-pub-2466725299492360" />
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2466725299492360"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://movie-website-assignment.vercel.app/" />
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/Icons/favicon.ico" type="image/x-icon" />
+    <!-- Main Style -->
+    <link id="main-style" rel="stylesheet" href="./css/style.css" />
+    <!-- Scripts -->
+    <script type="module">
+      import {
+        changeLanguage,
+        initializeLanguageSwitcher,
+      } from "./js/languageSwitcher.js";
+      import { toggleMenu, initNavAutoClose } from "./js/navToggle.js";
+
+      window.addEventListener("DOMContentLoaded", () => {
+        initializeLanguageSwitcher();
+        initNavAutoClose();
+        document
+          .getElementById("languageSwitcher")
+          .addEventListener("change", (e) => {
+            changeLanguage(e.target.value);
+          });
+        document
+          .getElementById("hamburger")
+          .addEventListener("click", toggleMenu);
+      });
+    </script>
+    <script src="./js/vue-app.js"></script>
+    <script>
+      w3IncludeHTML();
+    </script>
+    <script type="module" src="./js/nav-toggle.js"></script>
+    <script src="./js/form-validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+
+  <body>
+    <div style="text-align: right; padding: 10px 30px">
+      <label for="languageSwitcher">Language:</label>
+      <select id="languageSwitcher" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+      </select>
     </div>
-    <nav id="main-nav" aria-label="Main Navigation">
-      <ul class="nav-links" id="navLinks">
-      <li><a href="#home" role="link" aria-label="Home">Home</a></li>
-        <li><a href="#library" role="link" aria-label="Our Screens">OUR SCREENS</a></li>
-        <li><a href="#schedule" role="link" aria-label="Schedule">Schedule</a></li>
-        <li><a href="#library" role="link" aria-label="Movie Library">MOVIE LIBRARY</a></li>
-        <li><a href="#contact" role="link" aria-label="Contact Us">Location & Contact</a></li>
-      </ul>
-      <div class="hamburger" id="hamburger" aria-label="Navigation Menu" onclick="toggleMenu()">☰</div>
-    </nav>
-  </header>
-
-  <!-- Main Visual -->
-<section class="main-visual-section">
-  <video autoplay loop muted playsinline class="main-visual">
-    <source src="./assets/Videos/film-hall.mp4" type="video/mp4" />
-    <img src="/assets/Images/Header Image.jpg" alt="Hero Image" class="main-visual-fallback" />
-  </video>
-</section>
-
-
-
-  <!-- Intro -->
-  <section class="intro" id="home" role="main">
-    <h1>Movie Library</h1>
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-  </section>
-
-  <!-- Movie Grid using Vue Flip Cards -->
-  <div class="container" id="app" >
+    <!-- Header -->
+    <div w3-include-html="components/Header/header.html"></div>
     <header>
-      <h1>Collect your favourites</h1>
-
-      <input
-        type="text"
-        v-model="query"
-        @keyup.enter="searchShows"
-        placeholder="Search title and press Enter"
-        class="search-bar"
-      />
-      <hr />
+      <div class="logo">
+        <img src="/assets/Logos/Logo White.svg" alt="Logo" />
+      </div>
+      <nav id="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" role="link" aria-label="Home">Home</a></li>
+          <li>
+            <a href="#library" role="link" aria-label="Our Screens"
+              >OUR SCREENS</a
+            >
+          </li>
+          <li>
+            <a href="#schedule" role="link" aria-label="Schedule">Schedule</a>
+          </li>
+          <li>
+            <a href="#library" role="link" aria-label="Movie Library"
+              >MOVIE LIBRARY</a
+            >
+          </li>
+          <li>
+            <a href="#contact" role="link" aria-label="Contact Us"
+              >Location & Contact</a
+            >
+          </li>
+        </ul>
+        <div
+          class="hamburger"
+          id="hamburger"
+          aria-label="Navigation Menu"
+          onclick="toggleMenu()"
+        >
+          ☰
+        </div>
+      </nav>
     </header>
 
-    <div class="movie-grid" id="library" v-if="!loading">
-      <div v-if="loading" class="loader-wrapper">
-    <div class="loader"></div>
-  </div>
-      <div
-        class="flip-card"
-        v-for="(show, index) in shows"
-        :key="show.id"
-        :ref="'card-' + index"
-      >
-        <button class="close-btn" @click="removeShow(index)">✕</button>
+    <!-- Main Visual -->
+    <section class="main-visual-section">
+      <video autoplay loop muted playsinline class="main-visual">
+        <source src="./assets/Videos/film-hall.mp4" type="video/mp4" />
+        <img
+          src="/assets/Images/Header Image.jpg"
+          alt="Hero Image"
+          class="main-visual-fallback"
+        />
+      </video>
+    </section>
 
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img
-              :src="show.image?.medium || placeholder"
-              :alt="show.name || 'Movie poster'"
-              alt="Movie poster"
-            />
-            <h2>{{ show.name }}</h2>
-          </div>
+    <!-- Intro -->
+    <section class="intro" id="home" role="main">
+      <h1>Movie Library</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua.
+      </p>
+    </section>
 
-          <div class="flip-card-back">
-            <p>{{ stripTags(show.summary).slice(0, 180) || 'No description available.' }}</p>
+    <!-- Movie Grid using Vue Flip Cards -->
+    <div class="container" id="app">
+      <header>
+        <h1>Collect your favourites</h1>
+
+        <input
+          type="text"
+          v-model="query"
+          @keyup.enter="searchShows"
+          placeholder="Search title and press Enter"
+          class="search-bar"
+        />
+        <hr />
+      </header>
+
+      <div class="movie-grid" id="library" v-if="!loading">
+        <div v-if="loading" class="loader-wrapper">
+          <div class="loader"></div>
+        </div>
+        <div
+          class="flip-card"
+          v-for="(show, index) in shows"
+          :key="show.id"
+          :ref="'card-' + index"
+        >
+          <button class="close-btn" @click="removeShow(index)">✕</button>
+
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img
+                :src="show.image?.medium || placeholder"
+                :alt="show.name || 'Movie poster'"
+                alt="Movie poster"
+              />
+              <h2>{{ show.name }}</h2>
+            </div>
+
+            <div class="flip-card-back">
+              <p>
+                {{ stripTags(show.summary).slice(0, 180) || 'No description
+                available.' }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Contact & Map -->
-  <section class="contact-section" id="contact">
-    <div class="form-container">
-      <h2>How to reach us</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur.</p>
+    <!-- Contact & Map -->
+    <section class="contact-section" id="contact">
+      <div class="form-container">
+        <h2>How to reach us</h2>
+        <p>Lorem ipsum dolor sit amet, consetetur.</p>
 
-      <form id="formValidation">
-        <div class="contact-form">
-          <div class="row">
-            <div class="form-group">
-              <label for="fname">First Name *</label>
-              <input type="text" id="fname" placeholder="First Name *" required />
+        <form id="formValidation">
+          <div class="contact-form">
+            <div class="row">
+              <div class="form-group">
+                <label for="fname">First Name *</label>
+                <input
+                  type="text"
+                  id="fname"
+                  placeholder="First Name *"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name *</label>
+                <input
+                  type="text"
+                  id="lname"
+                  placeholder="Last Name *"
+                  required
+                />
+              </div>
             </div>
+
             <div class="form-group">
-              <label for="lname">Last Name *</label>
-              <input type="text" id="lname" placeholder="Last Name *" required />
+              <label for="email">Email *</label>
+              <input type="email" id="email" placeholder="Email *" required />
+            </div>
+
+            <div class="form-group">
+              <label for="telephone">Telephone</label>
+              <input type="text" id="telephone" placeholder="Telephone" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Message"></textarea>
+            </div>
+
+            <p class="note">* required fields</p>
+
+            <div class="form-footer">
+              <label class="checkbox-container">
+                <input class="checkbox" type="checkbox" required />
+                <span>I agree to the <a href="#">Terms & Conditions</a></span>
+              </label>
+              <button type="submit" class="submit-btn">SUBMIT</button>
             </div>
           </div>
+        </form>
+      </div>
 
-          <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" placeholder="Email *" required />
-          </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.5067860366346!2d-3.632826284596061!3d40.44537136100857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422fa939010d6d%3A0x86a2c269c0385aa1!2sAmadeus%20IT%20Group!5e0!3m2!1sen!2sus!4v1683537749335!5m2!1sen!2sus"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Amadeus IT Group"
+        ></iframe>
+      </div>
+    </section>
 
-          <div class="form-group">
-            <label for="telephone">Telephone</label>
-            <input type="text" id="telephone" placeholder="Telephone" />
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Message"></textarea>
-          </div>
-
-          <p class="note">* required fields</p>
-
-          <div class="form-footer">
-            <label class="checkbox-container">
-              <input class="checkbox" type="checkbox" required />
-              <span>I agree to the <a href="#">Terms & Conditions</a></span>
-            </label>
-            <button type="submit" class="submit-btn">SUBMIT</button>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-left">
+          <h3>Amadeus IT Group</h3>
+          <p>
+            C. Salvador de Madariaga, 1<br />
+            28027 Madrid<br />
+            Spain
+          </p>
+        </div>
+        <div class="footer-right">
+          <span class="follow-label">Follow us on</span>
+          <div class="social-icons">
+            <a href="#"
+              ><img src="./assets/Icons/Youtube white.svg" alt="YouTube"
+            /></a>
+            <a href="#"
+              ><img src="./assets/Icons/Twitter White.svg" alt="Twitter"
+            /></a>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
 
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.5067860366346!2d-3.632826284596061!3d40.44537136100857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422fa939010d6d%3A0x86a2c269c0385aa1!2sAmadeus%20IT%20Group!5e0!3m2!1sen!2sus!4v1683537749335!5m2!1sen!2sus"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Amadeus IT Group"
-      ></iframe>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-left">
-        <h3>Amadeus IT Group</h3>
+      <div class="footer-bottom">
+        <p>Copyright © 2022 Amadeus Hotels. All rights reserved.</p>
         <p>
-          C. Salvador de Madariaga, 1<br />
-          28027 Madrid<br />
-          Spain
+          Photos by <a href="#">Felix Mooneeram</a> &
+          <a href="#">Serge Kutuzov</a> on
+          <a href="#">Unsplash</a>
         </p>
       </div>
-      <div class="footer-right">
-        <span class="follow-label">Follow us on</span>
-        <div class="social-icons">
-          <a href="#"><img src="./assets/Icons/Youtube white.svg" alt="YouTube" /></a>
-          <a href="#"><img src="./assets/Icons/Twitter White.svg" alt="Twitter" /></a>
-        </div>
-      </div>
-    </div>
+    </footer>
 
-    <div class="footer-bottom">
-      <p>Copyright © 2022 Amadeus Hotels. All rights reserved.</p>
-      <p>
-        Photos by <a href="#">Felix Mooneeram</a> & <a href="#">Serge Kutuzov</a> on
-        <a href="#">Unsplash</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- Vue App Initialization -->
-   <script>
-    new Vue({
-      el: '#app',
-      data: {
-        shows: [],
-        query: '',
-        loading : true,
-        placeholder: 'https://via.placeholder.com/300x400?text=No+Image'
-      },
-      mounted() {
-        this.fetchShows('batman');
-      },
-      methods: {
-        fetchShows(query) {
-          fetch(`https://api.tvmaze.com/search/shows?q=${encodeURIComponent(query)}`)
-            .then(res => res.json())
-            .then(data => {
-              this.shows = data.map(d => d.show);
-              this.loading = false;
-              this.$nextTick(() => {
-                this.shows.forEach((_, i) => {
-                  gsap.from(this.$refs['card-' + i], {
-                    opacity: 0,
-                    y: 30,
-                    scale: 0.9,
-                    duration: 0.6,
-                    delay: i * 0.1,
-                    ease: 'power3.out'
+    <!-- Vue App Initialization -->
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          shows: [],
+          query: "",
+          loading: true,
+          placeholder: "https://via.placeholder.com/300x400?text=No+Image",
+        },
+        mounted() {
+          this.fetchShows("batman");
+        },
+        methods: {
+          fetchShows(query) {
+            fetch(
+              `https://api.tvmaze.com/search/shows?q=${encodeURIComponent(
+                query
+              )}`
+            )
+              .then((res) => res.json())
+              .then((data) => {
+                this.shows = data.map((d) => d.show);
+                this.loading = false;
+                this.$nextTick(() => {
+                  this.shows.forEach((_, i) => {
+                    gsap.from(this.$refs["card-" + i], {
+                      opacity: 0,
+                      y: 30,
+                      scale: 0.9,
+                      duration: 0.6,
+                      delay: i * 0.1,
+                      ease: "power3.out",
+                    });
                   });
                 });
               })
-            }).catch(() => {
-              this.loading = false
-            });
-        },
-        searchShows() {
-          if (this.query.trim()) {
-            this.fetchShows(this.query);
-          }
-        },
-        removeShow(index) {
-          const el = this.$refs['card-' + index];
-          gsap.to(el, {
-            opacity: 0,
-            scale: 0.5,
-            duration: 0.4,
-            ease: 'power2.in',
-            onComplete: () => {
-              this.shows.splice(index, 1);
+              .catch(() => {
+                this.loading = false;
+              });
+          },
+          searchShows() {
+            if (this.query.trim()) {
+              this.fetchShows(this.query);
             }
-          });
+          },
+          removeShow(index) {
+            const el = this.$refs["card-" + index];
+            gsap.to(el, {
+              opacity: 0,
+              scale: 0.5,
+              duration: 0.4,
+              ease: "power2.in",
+              onComplete: () => {
+                this.shows.splice(index, 1);
+              },
+            });
+          },
+          stripTags(html) {
+            return html ? html.replace(/<[^>]*>/g, "") : "";
+          },
         },
-        stripTags(html) {
-          return html ? html.replace(/<[^>]*>/g, '') : '';
+      });
+
+      function changeLanguage(lang) {
+        const link = document.getElementById("main-style");
+        const html = document.documentElement;
+
+        if (lang === "ar") {
+          link.href = "./css/style-rtl.css";
+          html.setAttribute("lang", "ar");
+          html.setAttribute("dir", "rtl");
+        } else {
+          link.href = "./css/style.css";
+          html.setAttribute("lang", "en");
+          html.setAttribute("dir", "ltr");
         }
+
+        localStorage.setItem("language", lang);
       }
-    });
 
- function changeLanguage(lang) {
-  const link = document.getElementById('main-style');
-  const html = document.documentElement;
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("language");
+        const browserLang = navigator.language || navigator.userLanguage;
+        const langToUse =
+          savedLang || (browserLang.startsWith("ar") ? "ar" : "en");
+        document.getElementById("languageSwitcher").value = langToUse;
+        changeLanguage(langToUse);
+      });
+    </script>
 
-  if (lang === 'ar') {
-    link.href = './css/style-rtl.css';
-    html.setAttribute('lang', 'ar');
-    html.setAttribute('dir', 'rtl');
-  } else {
-    link.href = './css/style.css';
-    html.setAttribute('lang', 'en');
-    html.setAttribute('dir', 'ltr');
-  }
-
-  localStorage.setItem('language', lang);
-}
-
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('language');
-      const browserLang = navigator.language || navigator.userLanguage;
-      const langToUse = savedLang || (browserLang.startsWith('ar') ? 'ar' : 'en');
-      document.getElementById('languageSwitcher').value = langToUse;
-      changeLanguage(langToUse);
-    });
-  </script>
-
- 
-  <script src="./js/hamburger.js"></script>
-  <script src="./js/formValidation.js"></script>
-</body>
+    <script src="./js/hamburger.js"></script>
+    <script src="./js/formValidation.js"></script>
+  </body>
 </html>
